@@ -1,11 +1,30 @@
 {
-  "name": "simple-html-server",
+  "name": "my-html-project",
   "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "http-server": "^0.14.0"
-  },
+  "description": "A simple HTML project",
+  "main": "index.html",
   "scripts": {
-    "start": "http-server ."
+    "start": "live-server",
+    "lint": "eslint ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "live-server": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
