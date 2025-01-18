@@ -148,9 +148,18 @@
 <a href="https://www.instagram.com/cangst74" class="block p-2 bg-gray-300 rounded-lg hover:bg-gray-400 cursor-pointer">Cpm_Cangsat</a>
                 </div>
       </div>
-            <a href="license.html" class="block p-2 bg-gray-200 rounded-lg hover:bg-gray-300 cursor-pointer">License</a>
-            <a href="about.html" class="block p-2 bg-gray-200 rounded-lg hover:bg-gray-300 cursor-pointer">About</a>
-                           
+         <div class="p-2 bg-gray-200 rounded-lg hover:bg-gray-300 cursor-pointer" onclick="toggleSubmenu('License&aboutSubmenu')">
+<div class="flex items-center justify-between">
+<span>ABOUT & LICENSE</span>
+              <i class="fas fa-bars text-xl"></i>
+                </div>
+                <div id="License&aboutSubmenu" class="mt-2 space-y-1 hidden">
+                    <a href="license.html" class="block p-2 bg-gray-300 rounded-lg hover:bg-gray-400 cursor-pointer">License</a>
+                    <a href="about.html" class="block p-2 bg-gray-300 rounded-lg hover:bg-gray-400 cursor-pointer">About</a>
+                </div>
+      </div>
+            <a href="https://cpm-jhon.my.id" class="block p-2 bg-gray-200 rounded-lg hover:bg-gray-300 cursor-pointer">Home</a>
+               
                       
              <!-- QRIS -->
 <!DOCTYPE html>
@@ -485,11 +494,11 @@ Cpm_jhon</a></footer>
               </div>
             </footer>
           </div>
-              <audio id="background-music" src="jah.mp3" loop autoplay></audio>
+              <audio id="background-music" src="./ms/jah.mp3" loop autoplay></audio>
             </div>
               <div class="video-container">
         <video autoplay loop muted>
-            <source src="miku.mp4" type="video/mp4">
+            <source src="./ms/miku.mp4" type="video/mp4">
             Browser Anda tidak mendukung video tag.
         </video>
               </div>
