@@ -515,38 +515,38 @@ Cpm_jhon</a></footer>
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
      <script>
-         document.addEventListener('click', function(event) {
-    const target = event.target;
-
-    // Toggle Mobile Menu (Buka/Tutup)
-    if (target.id === 'burger-menu') {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
-
-    // Tutup Mobile Menu + Semua Submenu Jika Tombol "X" ditekan
-    if (target.closest('[data-role="CloseMobileMenu"]')) {
-        console.log("Tombol X ditekan, menutup menu dan submenu"); // Debugging
-        document.getElementById('mobile-menu')?.classList.add('hidden');
-        
-        document.querySelectorAll('.space-y-1').forEach(submenu => {
-            submenu.classList.add('hidden');
-        });
-    }
-
-    // Toggle Submenu (Pastikan hanya satu terbuka)
-    if (target.closest('[data-submenu]')) {
-        const submenuId = target.closest('[data-submenu]').getAttribute('data-submenu');
-        console.log("Toggle submenu:", submenuId); // Debugging
-
-        document.querySelectorAll('.space-y-1').forEach(submenu => {
-            if (submenu.id !== submenuId) {
-                submenu.classList.add('hidden');
-            }
-        });
-
-        document.getElementById(submenuId)?.classList.toggle('hidden');
-    }
+         document.getElementById('burger-menu').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
 });
+
+// Cari tombol "X" dengan querySelector
+document.querySelector('[data-role="CloseMobileMenu"]').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.add('hidden');
+
+    // Tutup semua submenu saat tombol "X" ditekan
+    document.querySelectorAll('.space-y-1').forEach(submenu => {
+        submenu.classList.add('hidden');
+    });
+});
+
+// Fungsi untuk toggle submenu dengan ID
+function toggleSubmenu(id) {
+    const submenu = document.getElementById(id);
+
+    if (!submenu) {
+        console.log("Submenu tidak ditemukan:", id);
+        return;
+    }
+
+    // Tutup semua submenu kecuali yang diklik
+    document.querySelectorAll('.space-y-1').forEach(item => {
+        if (item.id !== id) {
+            item.classList.add('hidden');
+        }
+    });
+
+    submenu.classList.toggle('hidden');
+}
      </script>
   </body>
   </html>
