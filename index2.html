@@ -519,29 +519,41 @@ Cpm_jhon</a></footer>
     document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 
-// Cari tombol "X" berdasarkan data-role
-document.querySelector('[data-role="CloseMobileMenu"]').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.add('hidden');
+// Gunakan event listener dengan pengecekan keberadaan elemen
+const closeBtn = document.querySelector('[data-role="CloseMobileMenu"]');
+if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+        console.log("Tombol X ditekan, menutup menu"); // Debugging
+        document.getElementById('mobile-menu')?.classList.add('hidden');
 
-    // Tutup semua submenu saat menu utama ditutup
-    const submenus = document.querySelectorAll('.space-y-1');
-    submenus.forEach(submenu => {
-        submenu.classList.add('hidden');
+        // Tutup semua submenu saat menu utama ditutup
+        const submenus = document.querySelectorAll('.space-y-1');
+        submenus.forEach(submenu => {
+            console.log("Menutup submenu:", submenu.id); // Debugging
+            submenu.classList.add('hidden');
+        });
     });
-});
+} else {
+    console.log("Elemen tombol X tidak ditemukan!"); // Debugging
+}
 
 function toggleSubmenu(id) {
+    console.log("Toggle submenu:", id); // Debugging
     const submenus = document.querySelectorAll('.space-y-1');
 
     submenus.forEach(submenu => {
         if (submenu.id !== id) {
-            submenu.classList.add('hidden'); // Tutup submenu lain
+            console.log("Menutup submenu lain:", submenu.id); // Debugging
+            submenu.classList.add('hidden'); 
         }
     });
 
     const submenu = document.getElementById(id);
     if (submenu) {
-        submenu.classList.toggle('hidden'); // Toggle submenu yang diklik
+        console.log("Menampilkan submenu:", id); // Debugging
+        submenu.classList.toggle('hidden');
+    } else {
+        console.log("Submenu tidak ditemukan:", id); // Debugging
     }
 }
      </script>
