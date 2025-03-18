@@ -517,7 +517,7 @@ Cpm_jhon</a></footer>
      <script>
     function toggleSubmenu(id) {
         // Menutup semua submenu sebelum membuka yang baru
-        document.querySelectorAll('.submenu').forEach(submenu => {
+        document.querySelectorAll('.space-y-1').forEach(submenu => {
             if (submenu.id !== id) {
                 submenu.classList.add('hidden');
             }
@@ -530,7 +530,7 @@ Cpm_jhon</a></footer>
 
     // Menutup semua submenu ketika tombol silang diklik
     document.querySelector('.home-close-mobile-menu').addEventListener('click', function() {
-        document.querySelectorAll('.submenu').forEach(submenu => {
+        document.querySelectorAll('.space-y-1').forEach(submenu => {
             submenu.classList.add('hidden');
         });
     });
