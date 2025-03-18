@@ -515,47 +515,38 @@ Cpm_jhon</a></footer>
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
      <script>
-         document.getElementById('burger-menu').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+         document.addEventListener('click', function(event) {
+    const target = event.target;
 
-// Gunakan event listener dengan pengecekan keberadaan elemen
-const closeBtn = document.querySelector('[data-role="CloseMobileMenu"]');
-if (closeBtn) {
-    closeBtn.addEventListener('click', function() {
-        console.log("Tombol X ditekan, menutup menu"); // Debugging
+    // Toggle Mobile Menu (Buka/Tutup)
+    if (target.id === 'burger-menu') {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Tutup Mobile Menu + Semua Submenu Jika Tombol "X" ditekan
+    if (target.closest('[data-role="CloseMobileMenu"]')) {
+        console.log("Tombol X ditekan, menutup menu dan submenu"); // Debugging
         document.getElementById('mobile-menu')?.classList.add('hidden');
-
-        // Tutup semua submenu saat menu utama ditutup
-        const submenus = document.querySelectorAll('.space-y-1');
-        submenus.forEach(submenu => {
-            console.log("Menutup submenu:", submenu.id); // Debugging
+        
+        document.querySelectorAll('.space-y-1').forEach(submenu => {
             submenu.classList.add('hidden');
         });
-    });
-} else {
-    console.log("Elemen tombol X tidak ditemukan!"); // Debugging
-}
-
-function toggleSubmenu(id) {
-    console.log("Toggle submenu:", id); // Debugging
-    const submenus = document.querySelectorAll('.space-y-1');
-
-    submenus.forEach(submenu => {
-        if (submenu.id !== id) {
-            console.log("Menutup submenu lain:", submenu.id); // Debugging
-            submenu.classList.add('hidden'); 
-        }
-    });
-
-    const submenu = document.getElementById(id);
-    if (submenu) {
-        console.log("Menampilkan submenu:", id); // Debugging
-        submenu.classList.toggle('hidden');
-    } else {
-        console.log("Submenu tidak ditemukan:", id); // Debugging
     }
-}
+
+    // Toggle Submenu (Pastikan hanya satu terbuka)
+    if (target.closest('[data-submenu]')) {
+        const submenuId = target.closest('[data-submenu]').getAttribute('data-submenu');
+        console.log("Toggle submenu:", submenuId); // Debugging
+
+        document.querySelectorAll('.space-y-1').forEach(submenu => {
+            if (submenu.id !== submenuId) {
+                submenu.classList.add('hidden');
+            }
+        });
+
+        document.getElementById(submenuId)?.classList.toggle('hidden');
+    }
+});
      </script>
   </body>
   </html>
