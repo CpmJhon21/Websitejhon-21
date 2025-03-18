@@ -521,14 +521,14 @@ Cpm_jhon</a></footer>
 
         document.getElementById('close-mobile-menu').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.add('hidden');
-            const submenus = document.querySelectorAll('.submenu');
+            const submenus = document.querySelectorAll('.space-y-1');
             submenus.forEach(submenu => {
                 submenu.classList.add('hidden');
             });
         });
 
         function toggleSubmenu(id) {
-            const submenus = document.querySelectorAll('.submenu');
+            const submenus = document.querySelectorAll('.space-y-1');
             submenus.forEach(submenu => {
                 if (submenu.id !== id) {
                     submenu.classList.add('hidden');
