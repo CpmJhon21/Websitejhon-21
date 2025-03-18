@@ -102,8 +102,10 @@
               <div class="home-nav">
                 <div class="home-container02">
                   <span class="home-logo-center1">CPM_JHON</span>
-                  <div id="close-mobile-menu" class="home-close-mobile-menu">
-
+                  <div
+                    data-role="CloseMobileMenu"
+                    class="home-close-mobile-menu"
+                  >
                     <svg viewBox="0 0 1024 1024" class="home-icon02">
                       <path
                         d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
@@ -517,7 +519,8 @@ Cpm_jhon</a></footer>
     document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 
-document.getElementById('close-mobile-menu').addEventListener('click', function() {
+// Cari tombol "X" berdasarkan data-role
+document.querySelector('[data-role="CloseMobileMenu"]').addEventListener('click', function() {
     document.getElementById('mobile-menu').classList.add('hidden');
 
     // Tutup semua submenu saat menu utama ditutup
