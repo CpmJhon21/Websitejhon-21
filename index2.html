@@ -516,20 +516,20 @@ Cpm_jhon</a></footer>
     <script src="https://cdn.tailwindcss.com"></script>
      <script>
          function toggleSubmenu(menuId) {
-    // Dapatkan semua submenu yang ada
+    // Ambil semua submenu
     const allSubmenus = document.querySelectorAll('.submenu');
 
-    // Loop untuk menutup semua submenu kecuali yang sedang diklik
+    // Loop untuk menutup semua submenu yang lain
     allSubmenus.forEach(submenu => {
         if (submenu.id !== menuId) {
-            submenu.classList.add('hidden'); // Tutup submenu lain
+            submenu.classList.add('hidden'); // Tutup submenu yang tidak diklik
         }
     });
 
     // Toggle submenu yang diklik
     const submenu = document.getElementById(menuId);
     if (submenu) {
-        submenu.classList.toggle('hidden'); // Buka/tutup submenu yang dipilih
+        submenu.classList.toggle('hidden'); // Tampilkan atau sembunyikan submenu
     }
 }
      </script>
