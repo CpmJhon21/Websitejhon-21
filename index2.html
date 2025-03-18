@@ -515,38 +515,25 @@ Cpm_jhon</a></footer>
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
      <script>
-         document.getElementById('burger-menu').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+    function toggleSubmenu(id) {
+        // Menutup semua submenu sebelum membuka yang baru
+        document.querySelectorAll('.submenu').forEach(submenu => {
+            if (submenu.id !== id) {
+                submenu.classList.add('hidden');
+            }
+        });
 
-// Cari tombol "X" dengan querySelector
-document.querySelector('[data-role="CloseMobileMenu"]').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.add('hidden');
-
-    // Tutup semua submenu saat tombol "X" ditekan
-    document.querySelectorAll('.space-y-1').forEach(submenu => {
-        submenu.classList.add('hidden');
-    });
-});
-
-// Fungsi untuk toggle submenu dengan ID
-function toggleSubmenu(id) {
-    const submenu = document.getElementById(id);
-
-    if (!submenu) {
-        console.log("Submenu tidak ditemukan:", id);
-        return;
+        // Toggle submenu yang diklik
+        const submenu = document.getElementById(id);
+        submenu.classList.toggle('hidden');
     }
 
-    // Tutup semua submenu kecuali yang diklik
-    document.querySelectorAll('.space-y-1').forEach(item => {
-        if (item.id !== id) {
-            item.classList.add('hidden');
-        }
+    // Menutup semua submenu ketika tombol silang diklik
+    document.querySelector('.home-close-mobile-menu').addEventListener('click', function() {
+        document.querySelectorAll('.submenu').forEach(submenu => {
+            submenu.classList.add('hidden');
+        });
     });
-
-    submenu.classList.toggle('hidden');
-}
      </script>
   </body>
   </html>
