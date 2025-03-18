@@ -521,24 +521,21 @@ Cpm_jhon</a></footer>
 
         document.getElementById('close-mobile-menu').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.add('hidden');
-            // Tutup semua submenu saat menu ditutup
-            const allSubmenus = document.querySelectorAll('.submenu');
-            allSubmenus.forEach(submenu => {
+            const submenus = document.querySelectorAll('.space-y-1');
+            submenus.forEach(submenu => {
                 submenu.classList.add('hidden');
             });
         });
 
-        function toggleSubmenu(menuId) {
-            const allSubmenus = document.querySelectorAll('.submenu');
-            allSubmenus.forEach(submenu => {
-                if (submenu.id !== menuId) {
+        function toggleSubmenu(id) {
+            const submenus = document.querySelectorAll('.space-y-1');
+            submenus.forEach(submenu => {
+                if (submenu.id !== id) {
                     submenu.classList.add('hidden');
                 }
             });
-            const submenu = document.getElementById(menuId);
-            if (submenu) {
-                submenu.classList.toggle('hidden');
-            }
+            const submenu = document.getElementById(id);
+            submenu.classList.toggle('hidden');
         }
      </script>
   </body>
