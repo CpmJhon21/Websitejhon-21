@@ -294,4 +294,19 @@
     align-items: center;
     background-color: #fff; /* Warna latar belakang kotak */
   }
+  @keyframes rainbowText {
+    0% { color: red; }
+    16% { color: orange; }
+    33% { color: yellow; }
+    50% { color: green; }
+    66% { color: blue; }
+    83% { color: indigo; }
+    100% { color: violet; }
+}
+
+.rainbow-text {
+    font-weight: bold;
+    font-size: 16px; /* Sesuaikan ukuran font */
+    animation: rainbowText 3s linear infinite;
+ }
 }
