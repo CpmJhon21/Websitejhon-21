@@ -515,36 +515,31 @@ Cpm_jhon</a></footer>
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
      <script>
-         document.getElementById('burger-menu')?.addEventListener('click', function() {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+         document.getElementById('burger-menu').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 
-document.getElementById('close-mobile-menu')?.addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) {
-        mobileMenu.classList.add('hidden');
-    }
+document.getElementById('close-mobile-menu').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.add('hidden');
 
-    // Tutup semua submenu saat tombol X diklik
-    const submenus = document.querySelectorAll('.submenu'); // Pastikan ini adalah kelas submenu yang benar
+    // Pastikan semua submenu tertutup saat menu ditutup
+    const submenus = document.querySelectorAll('.space-y-1');
     submenus.forEach(submenu => {
         submenu.classList.add('hidden');
     });
 });
 
 function toggleSubmenu(id) {
-    const submenus = document.querySelectorAll('.submenu'); // Gunakan kelas submenu yang sesuai
+    const submenus = document.querySelectorAll('.space-y-1');
 
     submenus.forEach(submenu => {
         if (submenu.id !== id) {
-            submenu.classList.add('hidden'); // Tutup semua submenu kecuali yang diklik
+            submenu.classList.add('hidden'); // Tutup semua submenu lain
         }
     });
 
     const submenu = document.getElementById(id);
-    if (submenu) {
-        submenu.classList.toggle('hidden'); // Toggle submenu yang diklik
-    }
+    submenu.classList.toggle('hidden'); // Toggle submenu yang diklik
 }
      </script>
   </body>
