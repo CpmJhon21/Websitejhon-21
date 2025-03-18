@@ -316,4 +316,43 @@
     text-align: center;
     flex-wrap: wrap; /* Hindari teks terlalu panjang di layar kecil */
  }
+  @keyframes moveDino {
+    0% {
+        transform: translateX(-10px) scaleX(1);
+    }
+    50% {
+        transform: translateX(100vw) scaleX(1);
+    }
+    51% {
+        transform: translateX(100vw) scaleX(-1); /* Balik badan */
+    }
+    100% {
+        transform: translateX(-10px) scaleX(-1);
+    }
+}
+
+.dino-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Sesuaikan tinggi */
+    overflow: hidden;
+}
+
+.dino-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    opacity: 0;
+}
+
+.dino-container.active {
+    opacity: 1;
+    animation: moveDino 5s linear infinite;
+}
+
+.dino {
+    width: 100%;
+    height: auto;
+ }
 }
